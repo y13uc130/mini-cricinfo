@@ -7,6 +7,13 @@ export const $getSchedules = `
       venue,
       matchID,
       matchType,
-      statusMessage
+      statusMessage,
+      matchNumber,
+      currentDay,
+      matchScore {
+        teamFullName,
+        teamShortName,
+        teamID
+      }
     } 
   }`;

@@ -1,7 +1,12 @@
-.App {
-  text-align: center;
-}
 
+* {
+  scroll-behavior: smooth;
+  font-family: Courier;
+}
+.w15 {
+  width: 28px;
+  height: 16px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

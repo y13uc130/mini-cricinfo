@@ -1,8 +1,11 @@
 import axios from 'axios';
 import { $getSchedules } from '../queries';
-const root = process.env.CRICKET_API_URL;
+const root = 'https://api.devcdc.com/cricket';
 
-export const getSchedules = async ({status, type, page}) => {   
+export const _getSchedules = (data) => async (dispatch) => {  
+  dispatch({ type: 'GET_SCHEDULES', data })
+}
+export const getSchedules = async ({status, type, page}) => {
   try {
       const res = await axios.post(root, {
           query: $getSchedules,
@@ -12,8 +15,8 @@ export const getSchedules = async ({status, type, page}) => {
               page 
           }
       });               
-      if(res){
-        return res;
+      if(res && res.data && res.data.data){
+        return res.data.data.schedule;
       }         
       return false;
   }
